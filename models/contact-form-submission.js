@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 
 var contactFormSubmissionSchema = new mongoose.Schema({
-  name: String,
-  email: String,
+  name: {type: String, required: true};
+  email: {type: String, required: true},
   subject: String,
   message: String,
 });
