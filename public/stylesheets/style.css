@@ -6,3 +6,79 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+
+
+/***************************************************
+  VI: CONTACT
+***************************************************/
+.google-maps { height: 400px; margin: 0px 0 30px; }
+
+.contact_form { padding-top: 20px; }
+#ajax-contact-form input, .contact_form textarea { border:0px none; box-shadow: none; }
+.contact_form textarea { min-height: 200px;}
+
+.form_info {
+  color: #767676;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  clear: both;
+}
+#ajax-contact-form input, #ajax-contact-form textarea {
+  border: 2px solid #d8d3cb;
+  color: #888;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+#ajax-contact-form input { line-height:0px; }
+.required { font-size: 17px; }
+
+#ajax-contact-form input.btn-form {
+  border: 0 none;
+  color: #fff;
+  background-color: #767676;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px 14px;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+.notification_error {
+  color: #fff;
+  background-color: #333;
+  height: auto;
+  margin: 0 0 9px 0;
+  padding: 10px;
+  text-align: left;
+}
+.notification_ok {
+  color: #fff;
+  background-color: #333;
+  font-weight: 400;
+  height: auto;
+  margin: 0 0 9px 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+}
