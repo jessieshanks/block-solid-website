@@ -62,8 +62,7 @@ router.post('/', function(req, res) {
   });
 
 
-  // Post contact form information to database
-  //
+  // Post contact form information to database//
     console.log(emailNotListed(req.body.email));
     if (emailNotListed(res.body.email)) {
       var emailList = new EmailList ({
