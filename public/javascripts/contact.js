@@ -1,4 +1,5 @@
 
+
 function resetForm () {
     $('#name').val('');
     $('#email').val('');
@@ -21,16 +22,16 @@ $(function() {
     // contact form submit, using ajax
     $('#ajax-contact-form').submit(function(event) {
         event.preventDefault();
-        var email=$("#email").val().toLowerCase();
-        console.log(validateEmail(email));
-        if (validateEmail(email)) {
+        var from=$("#email").val().toLowerCase();
+        console.log(validateEmail(from));
+        if (validateEmail(from)) {
             $.ajax({
                 type: 'POST',
                 url: '/contact',
                 dataType: "json",
                 data: {
                     name: $("#name").val(),
-                    email: email,
+                    email: from,
                     subject: $("#subject").val(),
                     message: $("#message").val()
                 },

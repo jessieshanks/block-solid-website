@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-var contactFormSubmissionSchema = new mongoose.Schema({
+var contactFormSchema = new mongoose.Schema({
   name: {type: String, required: true},
   email: {type: String, required: true},
   subject: String,
@@ -11,7 +11,7 @@ var contactFormSubmissionSchema = new mongoose.Schema({
 
 
 
-var ContactFormSubmission = mongoose.model('ContactFormSubmission', contactFormSubmissionSchema);
+var ContactForm = mongoose.model('ContactForm', contactFormSchema);
 
-module.exports = ContactFormSubmission;
+module.exports = ContactForm;
 
