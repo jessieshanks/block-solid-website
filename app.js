@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var teamMembers = require('./routes/team-members');
-var contactFormSubmissions = require('./routes/contact-form-submissions');
+var contactForms = require('./routes/contact-forms');
 
 var app = express();
 
@@ -30,7 +30,7 @@ mongoose.connect(process.env.DB_CONN_BLOCK_SOLID_WEBSITE_PROJECT);
 
 app.use('/', routes);
 app.use('/team', teamMembers);
-app.use('/contact', contactFormSubmissions);
+app.use('/contact', contactForms);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
