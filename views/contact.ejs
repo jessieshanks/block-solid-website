@@ -4,7 +4,7 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
 
@@ -26,20 +26,20 @@
 
           <div class="col-sm-6 col-md-8">
             <div class="contact_form">
-              <div id="note"></div>
+              <div class="col-xs-12 col-sm-12 col-md-8" id="form-messages"></div>
                 <div id="fields">
-                  <form id="ajax-contact-form">
+                  <form id="ajax-contact-form" method="post">
                     <p class="form_info">name <span class="required">*</span></p>
-                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" name="name" value="" />
+                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" id="name" name="name" value="" required/>
                     <p class="form_info">email <span class="required">*</span></p>
-                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" name="email" value=""  />
+                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" id="email" name="email" value="" required  />
                     <p class="form_info">subject</p>
-                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" name="subject" value="" /><br>
+                      <input class="col-xs-12 col-sm-12 col-md-8" type="text" id="subject" name="subject" value="" /><br>
                     <p class="form_info">message</p>
                       <textarea name="message" id="message" class="col-xs-12 col-sm-12 col-md-12" ></textarea>
                     <div class="clear"></div>
                     <input type="submit" class="btn btn-primary btn-form marg-right5" value="submit" />
-                    <input type="reset" class="btn btn-primary btn-form" value="reset" />
+                    <input type="reset" class="btn btn-primary btn-form" id="reset-button" value="reset" />
                     <div class="clear pad45"></div>
                   </form>
                 </div>
@@ -49,5 +49,8 @@
       </div>
     </div>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="/javascripts/contact.js"></script>
 
 </body>
