@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var teamMembers = require('./routes/team-members');
+var contactFormSubmissions = require('./routes/contact-form-submissions');
 
 var app = express();
 
@@ -29,8 +29,8 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_BLOCK_SOLID_WEBSITE_PROJECT);
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/team', teamMembers);
+app.use('/contact', contactFormSubmissions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,6 +62,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
