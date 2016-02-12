@@ -4,27 +4,11 @@ var sendgrid  = require('sendgrid')('SG.EsZfk2_4SmW11s4C0tfqKg.PzpmAXjmL4kVQF3rk
 var ContactForm = require('../models/contact-form');
 var EmailList = require('../models/email-list');
 
-var emailsPreviouslyPosted;
-
-
-function emailNotListed (email) {
-  console.log("is trying emailNotListed");
-  console.log(emailsPreviouslyPosted)
-  for (var i=0; i<emailsPreviouslyPosted.length; i++) {
-    if (emailsPreviouslyPosted[i].email===email) {return true;}
-  }
-  return false;
-};
 
 
 /* GET contact form page */
 router.get('/', function(req, res, next) {
   res.render('contact', { title: 'Contact Us' });
-  EmailList.find({}, 'email', function(err, emailList) {
-    if (err) console.log(err);
-    emailsPreviouslyPosted = emailList;
-    console.log (emailsPreviouslyPosted);
-  });
 });
 
 
@@ -32,7 +16,8 @@ router.get('/', function(req, res, next) {
 /* POST contact form info */
 router.post('/', function(req, res) {
 
-  // Post contact form information to database
+
+  // Post contact form data to contact form collection in db
   var contactForm = new ContactForm ({
     name: req.body.name,
     email: req.body.email,
@@ -43,6 +28,26 @@ router.post('/', function(req, res) {
     if (err) {
       console.log(err);
       throw err;
+    } else {
+
+      // post new email addresses to email list collection in db
+      EmailList.find({ email: req.body.email }, 'email', function(err, emailList) {
+        if (err) console.log(err);
+        if (!emailList.length) {
+            var emailList = new EmailList ({
+              name: req.body.name,
+              email: req.body.email,
+              subscribed: true,
+            });
+            emailList.save(function(err, emailList) {
+              if (err) {
+                console.log(err);
+                throw err;
+              }
+              res.status(200).json(emailList);
+            });
+        };
+      });
     }
     res.status(200).json(contactForm);
   });
@@ -61,24 +66,6 @@ router.post('/', function(req, res) {
       console.log(json);
   });
 
-
-  // Post contact form information to database//
-    console.log(emailNotListed(req.body.email));
-    if (emailNotListed(res.body.email)) {
-      var emailList = new EmailList ({
-        name: req.body.name,
-        email: req.body.email,
-        subscribed: true,
-      });
-      emailList.save(function(err, emailList) {
-        if (err) {
-          console.log(err);
-          throw err;
-        }
-        res.status(200).json(emailList);
-      });
-    }
-  //
 
 });
 
