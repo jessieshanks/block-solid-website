@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include partials/head %>
   </head>
+
+
   <body>
-    <h1><%= title %></h1>
+
+    <header>
+      <% include partials/header %>
+    </header>
+
+    <div class="container-fluid banner text-center page-title-zone">
+      <h3 class="text-muted">Meet the Makers</h3>
+      <h1>Our Team</h1>
+    </div>
 
 
-
-    <div cl
-        <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 ">
-          <% for (var i=0; i<team.length; i++) { %>
-              <img src="<%= team[i].picUrl %>" alt="" class="img-responsive">
-              <h3><%= team[i].name %> </h3>
-              <h4><%= team[i].role %> </h2>
-              <p><%= team[i].bio %></p>
-          <% } %>
+    <div class="container-fluid">
+        <div class="row col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <% for (var i=0; i<team.length; i++) { %>
+              <div class="column col-md-4">
+                <div class="well col-md-12 team-well">
+                  <img src="<%= team[i].picUrl %>" alt="" class="img-responsive team-pic">
+                   <div>
+                    <div class="well team-info">
+                      <h3><%= team[i].name %> </h3>
+                      <h4><%= team[i].role %> </h4>
+                      <p><%= team[i].bio %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% } %>
         </div>
-    </section>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-</body>
+
+
+
+<div>
+ <% include partials/footer %>
+</div>
+ </body>
 </html>
 
 
