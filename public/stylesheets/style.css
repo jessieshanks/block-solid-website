@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Basic", sans-serif;
+  background-color: #E0E0E2;
 }
 
 a {
@@ -13,7 +14,7 @@ a {
 /***************************************************
   VI: CONTACT
 ***************************************************/
-.google-maps { height: 400px; margin: 0px 0 30px; }
+
 
 .contact_form { padding-top: 20px; }
 #ajax-contact-form input, .contact_form textarea { border:0px none; box-shadow: none; }
@@ -81,4 +82,93 @@ a {
   text-align: center;
   font-size: 13px;
   text-transform: uppercase;
+}
+
+/***   navbar  ***/
+
+
+#main-menu {
+  background-color: #A31621;
+  margin: 0;
+  padding: 1em 3em 1em 3em;
+
+}
+
+/*name color & size*/
+/*.navbar .navbar-brand
+*/
+
+#navbar-cube {
+  font-size: 1.15em;
+  color: #E0E0E2;
+  margin-right: .3em;
+  padding: 0;
+}
+
+#my-name {
+    color: #E0E0E2;
+    letter-spacing: 1.5px;
+    font-family: 'Galindo', sans-serif;
+    font-weight: 600;
+    border: 10px;
+}
+
+.navbar-default .navbar-nav>li>a  {
+    color: #E0E0E2;
+    font-size: 1.2em;
+    letter-spacing: 1.5px;
+    font-family: 'Exo', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a:hover  {
+    color: gray;
+}
+
+#my-name:hover {
+    color: gray;
+}
+
+#navbar-cube:hover {
+  color:gray;
+}
+
+
+@media(min-width:768px) {
+    .navbar-fixed-top {
+        padding: 25px 0 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        font-size: 2.3em;
+        padding: .2em 2em 0 0;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+
+    .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+    }
+
+
+.navbar {
+    /*text-transform: lowercase;*/
+    /*font-weight: 900;*/
+    background-color: #A31621;
+}
+
+.navbar a:focus {
+    outline: 0;
+}
+
+.navbar .navbar-nav li a:focus {
+    outline: 0;
+}
+
+.navbar-default,
+.navbar-inverse {
+    border: 0;
 }
