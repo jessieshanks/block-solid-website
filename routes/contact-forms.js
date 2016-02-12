@@ -49,7 +49,6 @@ router.post('/', function(req, res) {
         };
       });
     }
-    res.status(200).json(contactForm);
   });
 
 
