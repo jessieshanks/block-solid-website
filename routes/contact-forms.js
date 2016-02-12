@@ -6,10 +6,12 @@ var EmailList = require('../models/email-list');
 
 
 
+
 /* GET contact form page */
 router.get('/', function(req, res, next) {
   res.render('contact', { title: 'Contact Us' });
 });
+
 
 
 
@@ -28,41 +30,44 @@ router.post('/', function(req, res) {
     if (err) {
       console.log(err);
       throw err;
-    } else {
+    }
+    else {
 
-      // post new email addresses to email list collection in db
+      // Send email with contact form information
+      var email = new sendgrid.Email({
+        to: 'info@block-solid.com',
+        fromname: req.body.name,
+        from: req.body.email,
+        subject: req.body.subject,
+        text: req.body.message
+      });
+      sendgrid.send(email, function(err, json) {
+          if (err) { return console.error(err); }
+          console.log(json);
+      });
+
+      // Post new email addresses to email list collection in db
       EmailList.find({ email: req.body.email }, 'email', function(err, emailList) {
         if (err) console.log(err);
         if (!emailList.length) {
-            var emailList = new EmailList ({
-              name: req.body.name,
-              email: req.body.email,
-              subscribed: true,
-            });
-            emailList.save(function(err, emailList) {
-              if (err) {
-                console.log(err);
-                throw err;
-              }
-              res.status(200).json(emailList);
-            });
-        };
+          var newEmail = new EmailList({
+            name: req.body.name,
+            email: req.body.email,
+            subscribed: true,
+          });
+          newEmail.save(function(err, savedEmail) {
+            if (err) {
+              console.log(err);
+              throw err;
+            }
+            res.status(200).json(savedEmail);
+          });
+        }
+        else {
+          res.status(200).json(emailList);
+        }
       });
     }
-  });
-
-
-  // Send email with contact form information
-  var email = new sendgrid.Email({
-    to: 'info@block-solid.com',
-    fromname: req.body.name,
-    from: req.body.email,
-    subject: req.body.subject,
-    text: req.body.message
-  });
-  sendgrid.send(email, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
   });
 
 

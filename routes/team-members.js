@@ -8,7 +8,6 @@ var TeamMember = require('../models/team-member');
 router.get('/', function(req, res, next) {
   TeamMember.find({'activeTeam': true}, function(err, teamMember) {
     if (err) console.log(err);
-    console.log (teamMember);
     res.render('team', {
       team: teamMember,
       title: "The Block Solid Team"
