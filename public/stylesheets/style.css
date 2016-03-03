@@ -20,7 +20,7 @@ a:hover {
 }
 
 .page-title-zone h3 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: bold;
   color: #7A7978;
   margin: 0;
@@ -28,7 +28,7 @@ a:hover {
 }
 
 .page-title-zone h1 {
-  font-size: 4em;
+  font-size: 3em;
   color: black;
   margin: 0 0 0 0;
   padding: 0;
@@ -58,7 +58,6 @@ footer {
 
 #bs-intro-visual.row {
   background-color: #A31621;
- /* height: 250px;*/
 }
 
 #bs-intro-text {
@@ -69,11 +68,77 @@ footer {
 .calendar-well {
   height: 350px;
   margin-top: 50px;
-  /*margin: 50px 30px 0 30px;*/
   border-radius: 50px;
 }
 
+.color-well {
+  height: 60px;
+  margin: 3px;
+  border: none;
 
+}
+.yellow-well {
+  background-color: #F5F749;
+}
+
+.blue-well {
+  background-color: #2E86AB;
+}
+
+#block-zone {
+  margin: 0;
+  padding: 0;
+}
+
+.yellow-zone {
+  margin: 70px 0px 20px 20px;
+}
+
+.blue-zone {
+  margin: 20px 0px 20px 20px;
+}
+
+.white-well {
+  height: 0px;
+  margin: 3px;
+  border: none;
+  background-color: transparent;
+}
+
+/** learn layout **/
+
+#learn-text {
+  font-size: 19px;
+  padding-top: 10px;
+}
+
+
+#slowp-row {
+  margin-top: 4em;
+}
+
+#slowp-text{
+  margin-top: 0em;
+}
+
+.slowp-column {
+  margin: 0;
+  padding: 0;
+}
+
+.slowp-buttons{
+  margin: 0em 2em 1em 0em;
+  padding: 1em .25em 1em .25em;
+  background-color: #FF6B35;
+  border-color: #7A7978;
+  border-width: 2%;
+  height: 65px;
+  font-size: 18px;
+}
+
+.slowp-buttons:hover{
+  background-color: #7A7978;
+}
 
 /** team layout **/
 

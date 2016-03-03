@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://fb.me/react-0.14.7.min.js"></script> //react script
+<script src="https://fb.me/react-dom-0.14.7.min.js"></script>   //react script
+<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+        <title>React Components</title>
+    </head>
+    <body>
+    <div id="react-container"></div>
+    <script type="text/jsx">
+        var MyComponent = React.createClass({
+            render: function() {
+                return <div>
+                        <h1>{this.props.text}</h1>
+                        <p>{this.props.children}</p>
+                </div>;
+            }
+        });
+
+        React.render(<div>
+                    <MyComponent text="Hello World">
+                        This will now be in a paragraph tag how about this
+                    </MyComponent>
+
+
+                    <MyComponent text="How are You?">
+
+                    </MyComponent>
+                    <MyComponent text="Goodbye">
+                    This is a goodbye.
+                    </MyComponent>
+                    </div>
+            , document.getElementById('react-container'));
+    </script>
+    </body>
+</html>
